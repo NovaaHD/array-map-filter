@@ -31,42 +31,55 @@ On peut se servir de map à deux reprises dans cet exercice...
 
 En prenant les deux exemples d'arguments d'entrée, on obtiendrait ceci en sortie:
 
-[ {
-    activity: 'Badminton',
-    persons: [ 'Jay Fox', 'Jenson Gardner', 'Jaydon Gallagher', 'Tripp Cash' ]
-  },
-  {
-    activity: 'Tennis',
-    persons: [ 'Jenson Gardner', 'Efrain Rollins' ]
-  },
-  {
-    activity: 'Volley-ball',
-    persons: [ 'Nicholas Knight', 'Efrain Rollins' ]
-  },
-  {
-    activity: 'Base-ball',
-    persons: [ 'Max Dean', 'Cody May', 'Nicholas Knight' ]
-  },
-  {
-    activity: 'Soccer',
-    persons: [ 'Max Dean' ]
-  },
-  {
-    activity: 'Basket-ball',
-    persons: [ 'Cody May', 'Fletcher Estes', 'Jaydon Gallagher' ]
-  },
-  {
-    activity: 'Cycling',
-    persons: [ 'Ross Howard' ]
-  }
-]
 
 */
 
-function getActivitiesMembers(activities, persons) {
-}
+const getActivitiesMembers = (activities, persons) =>
+  activities.map(Activity => {
+    return {
+      activity: Activity,
+      persons: persons.filter(personActivity => personActivity.activities.includes(Activity)).map(personName => personName.name)
+    };
+  });
+  
 
+// .map(namePerson => {
 
+//     if(namePerson.activities.includes(activites)) {
+//       return {persons: [nameActivity]}
+//     }
+
+// });
 
 // Ne pas modifier l'export
 module.exports = getActivitiesMembers;
+
+// [ {
+//   activity: 'Badminton',
+//   persons: [ 'Jay Fox', 'Jenson Gardner', 'Jaydon Gallagher', 'Tripp Cash' ]
+// },
+// {
+//   activity: 'Tennis',
+//   persons: [ 'Jenson Gardner', 'Efrain Rollins' ]
+// },
+// {
+//   activity: 'Volley-ball',
+//   persons: [ 'Nicholas Knight', 'Efrain Rollins' ]
+// },
+// {
+//   activity: 'Base-ball',
+//   persons: [ 'Max Dean', 'Cody May', 'Nicholas Knight' ]
+// },
+// {
+//   activity: 'Soccer',
+//   persons: [ 'Max Dean' ]
+// },
+// {
+//   activity: 'Basket-ball',
+//   persons: [ 'Cody May', 'Fletcher Estes', 'Jaydon Gallagher' ]
+// },
+// {
+//   activity: 'Cycling',
+//   persons: [ 'Ross Howard' ]
+// }
+// ]

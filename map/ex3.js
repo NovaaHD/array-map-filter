@@ -59,10 +59,19 @@ En sortie:
 
  */
 
-function getMoviesFreshness(movies) {
-}
-
-
+const getMoviesFreshness = movies =>
+  movies.map(Movies => {
+    return {
+      name: Movies.name,
+      rating: Movies.rating,
+      label:
+        Movies.rating >= 75
+          ? "certified fresh"
+          : Movies.rating < 60
+            ? "rotten"
+            : "fresh"
+    };
+  });
 
 // Ne pas modifier l'export
 module.exports = getMoviesFreshness;
